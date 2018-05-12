@@ -6,9 +6,8 @@ import (
 	"log"
 )
 
-func TestProjectConfig_GetProjectById(t *testing.T) {
+func TestGetProjectById(t *testing.T) {
 	pid := 1
-
 	project, err := GetProjectById(pid)
 	if err != nil {
 		log.Fatal(err)
@@ -18,3 +17,8 @@ func TestProjectConfig_GetProjectById(t *testing.T) {
 	}
 
 }
+/*
+func TestGetProjectList(t *testing.T) {
+	list := GetProjectList()
+	fmt.Println(list)
+}*/

@@ -7,6 +7,9 @@ import (
 	"fmt"
 )
 
+type BaseModel struct {
+
+}
 
 func init() {
 	dbHost := beego.AppConfig.String("db.host")
