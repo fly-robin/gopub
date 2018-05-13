@@ -15,7 +15,7 @@ func (c *BaseController) init()  {
 
 func (this *BaseController) Prepare() {
 	//站点公共标题
-	this.Data["SITE_NAME"] = "代码发布系统 v0.1"
+	this.Data["SITE_NAME"] = beego.AppConfig.String("site.name")
 	//项目列表
 	projects, num := models.GetProjectList()
 	this.Data["projects_list"] = projects
