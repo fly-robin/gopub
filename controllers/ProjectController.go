@@ -14,6 +14,7 @@ func (c *ProjectController) ProjectList() {
 	projects, num := models.GetProjectList()
 	c.Data["projects_list"] = projects
 	c.Data["projects_num"] = num
-	c.TplName = "project/list"
+	c.TplName = "project/list.html"
+	c.Render()
 	//fmt.Println(projects)
 }
