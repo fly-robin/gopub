@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"github.com/fly-robin/gopub/models"
 )
 
 type ProjectController struct {
@@ -10,11 +9,10 @@ type ProjectController struct {
 
 
 //所有项目列表
-func (c *ProjectController) ProjectList() {
-	projects, num := models.GetProjectList()
-	c.Data["projects_list"] = projects
-	c.Data["projects_num"] = num
-	c.TplName = "project/list.html"
+func (c *ProjectController) ProjectPanel() {
+	c.Prepare()
+	c.TplName = "project/detail.html"
 	c.Render()
-	//fmt.Println(projects)
 }
+
+

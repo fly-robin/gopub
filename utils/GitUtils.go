@@ -12,7 +12,6 @@ func GetGitTags(projectPath string) string {
 	if err != nil {
 		logs.Error(err)
 	}
-	//fmt.Println(string(cmdResult))
 	stringResult = string(cmdResult)
 
 	return stringResult

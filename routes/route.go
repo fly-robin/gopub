@@ -5,12 +5,13 @@ import (
 	"github.com/fly-robin/gopub/controllers"
 )
 
-func init()  {
+func init() {
 	beego.SetStaticPath("/static", "static")
 	//首页
 	beego.Router("/", &controllers.IndexController{}, "*:Index")
 	//项目列表
-	beego.Router("/projectList", &controllers.ProjectController{}, "*:ProjectList")
+	//beego.Router("/project/list", &controllers.ProjectController{}, "*:ProjectList")
+	beego.Router("/project/detail", &controllers.ProjectController{}, "*:ProjectPanel")
 	//
 	beego.Router("/tags", &controllers.GitTagController{}, "*:List")
 }
