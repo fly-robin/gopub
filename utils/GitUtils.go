@@ -5,6 +5,12 @@ import (
 	"github.com/astaxie/beego/logs"
 )
 
+//
+type GitInfo struct {
+	branch string //当前所在分支
+
+}
+
 func GetGitTags(projectPath string) string {
 	var stringResult string
 	commandString := "cd " + projectPath + " & git tag -l"

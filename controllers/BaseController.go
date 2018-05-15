@@ -8,6 +8,7 @@ import (
 type BaseController struct {
 	beego.Controller
 	currentProject int
+	currentProjectName string
 }
 
 func (c *BaseController) init()  {
@@ -23,6 +24,7 @@ func (this *BaseController) Prepare() {
 	var err error
 	if this.currentProject, err = this.GetInt("current_project"); err != nil {
 		this.currentProject = projects[0].Id
+		this.currentProjectName = projects[0].Name
 	}
 	this.Data["current_project"] = this.currentProject
 }

@@ -1,4 +1,16 @@
 {{template "layout/header.html" .}}
 <div class="layui-body">
+    <div class="layui-main">
+        <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+            <legend>项目面板 - {{.project_detail.Name}}</legend>
+        </fieldset>
+
+        <div class="layui-card">
+            <div class="layui-card-header">git详情</div>
+            <div class="layui-card-body">
+                分支：
+            </div>
+        </div>
+    </div>
 </div>
 {{template "layout/footer.html" .}}
