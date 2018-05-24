@@ -2,6 +2,7 @@ package utils
 
 import (
 	"regexp"
+	"fmt"
 )
 
 //
@@ -11,18 +12,33 @@ type GitInfo struct {
 }
 
 //获取当前的分支名
-func GetCurrentBranch(projectPath string)  string {
+func GetCurrentBranch(projectPath string)  (string, string) {
 	cmommand :=  "cd " + projectPath + " & git status"
-	result, err := ExecShell(cmommand)
+	stringResult, err := ExecShell(cmommand)
 	CheckError(err)
-	stringResult := string(result)
-	currentBranch := findBranchFromGitStatus(stringResult)
+	localBranch := findLocalBranchFromGitStatus(stringResult)
+	originBranch := findOriginBranchFromGitStatus(stringResult)
 
-	return currentBranch
+	return localBranch, originBranch
 }
 
-//从git status结果中解析出分支名
-func findBranchFromGitStatus(gitStatus string) string {
+//从git status结果中解析出本地分支名
+func findLocalBranchFromGitStatus(gitStatus string) string {
+	fmt.Println(gitStatus)
+	reg, err := regexp.Compile("branch (.*)\n");
+	subMatch := reg.FindStringSubmatch(gitStatus)
+	CheckError(err)
+	var branch string
+	if len(subMatch) > 0 {
+		branch = subMatch[1]
+	}
+
+	return branch
+}
+
+//解析出对应的远程分支
+func findOriginBranchFromGitStatus(gitStatus string) string {
+	fmt.Println(gitStatus)
 	reg, err := regexp.Compile("\\'(.*)\\'");
 	subMatch := reg.FindStringSubmatch(gitStatus)
 	CheckError(err)

@@ -11,6 +11,6 @@ func TestGetGitTags(t *testing.T) {
 }
 
 func TestGetCurrentBranch(t *testing.T) {
-	result := GetCurrentBranch("./")
-	fmt.Println(result)
+	local, origin := GetCurrentBranch("/d/jr/sina_finance")
+	fmt.Println(local, origin)
 }
