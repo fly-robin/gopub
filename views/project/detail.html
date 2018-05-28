@@ -8,7 +8,14 @@
         <div class="layui-card">
             <div class="layui-card-header">git详情</div>
             <div class="layui-card-body">
-                分支：
+                <div class="layui-row">
+                    <div class="layui-col-md2">
+                        本地分支：{{.git_branch.Local}}
+                    </div>
+                    <div class="layui-col-md10">
+                        远程分支：{{.git_branch.Origin}}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
